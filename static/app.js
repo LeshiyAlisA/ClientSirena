@@ -5,20 +5,35 @@ Ext.application({
     controllers: [
         'Buttons',
         'Users',
+        'Alerts',
         'AddPeople',
         'Struct'],
 
     launch: function() {
         Ext.create('Ext.container.Viewport', {
-            layout: 'column',
+            layout: 'border',
             items: [{
+                xtype:'buttonlist',
+                region: 'north'
+            },{
                 xtype: 'struct',
                 width: 200,
-                height:'100%'
+                region:'west',
+                collapsible: true,
+                split:true,
+                minSize:50
             },{
                 xtype: 'userlist',
-                width: 900,
-                height:'100%'
+                region: 'center'
+
+            },{
+                xtype: 'alerts',
+                region: 'south',
+                title:'Сообщения',
+                collapsible: true,
+                split:true,
+                minSize:50
+
             }]
         });    
     }
