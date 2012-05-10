@@ -3,10 +3,18 @@ from piston.handler import BaseHandler
 from BP.models import People
 import simplejson
 
+class Nodes(BaseHandler):
+    allowed_methods = ('GET',)
+
+    def read(self,request):
+        print "nodes"
+        data ={"success": "true", "children": [ { "id": "1", "title": "Phil", "leaf": "true" },  { "id": "2", "title": "Nico", "expanded": "true", "children": [{ "id": "3", "title": "Mitchell", "leaf": "true" }]}, { "id": "4", "title": "Sue", "loaded": "true" }]}
+        return data
+
 class PeopleHandler(BaseHandler):
     allowed_methods = ('GET',)
     model = People
-    fields = ('first_name', 'second_name')
+
 
     def read(self, request):
         print "PeopleHandler.read"
@@ -28,6 +36,5 @@ class PeopleHandler(BaseHandler):
                      'datePassport': r.datePassport, 'address': r.address, 'phone': r.phone})
 
         ext_dict = {'total': People.objects.all().count(), 'data': d}
-        seria = simplejson.dumps(ext_dict, ensure_ascii=False, indent=4)
 
         return ext_dict

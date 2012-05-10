@@ -7,5 +7,7 @@
  */
 Ext.define('AM.controller.Struct', {
     extend: 'Ext.app.Controller',
-    views: ['Struct']
+    views: ['Struct'],
+    stores: ['Struct'],
+    models: ['Struct']
 });

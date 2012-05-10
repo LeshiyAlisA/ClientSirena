@@ -8,43 +8,11 @@
 Ext.define('AM.view.Struct' ,{
     extend: 'Ext.tree.Panel',
     alias : 'widget.struct',
-    title: 'Структура',
-    root: {
-        text:"Структура охраны",
-        expanded: true,
-        children: [
-            {
-                expanded: true,
-                text: "Сотрудники",
-                children: [
-                    {
-                        text: 'ООО Рога и Копыта',
-                        leaf: true
-                    }
-
-                ]
-            },
-            {
-                expanded: true,
-                text:"План объекта",
-                children: [
-                    {
-                        text: 'Первый этаж',
-                        leaf: true
-                    },
-                    {
-                        text: 'Второй этаж',
-                        leaf: true
-                    }
-
-                ]
-            },{
-                text:"Журнал событий",
-                leaf: true
-            }
-
-        ]
-    }
+    title: 'People',
+    store: 'Struct',
+    columns: [
+        { xtype: 'treecolumn', header: 'Name', dataIndex: 'title', flex: 1 }
+    ]
 
 
 });
