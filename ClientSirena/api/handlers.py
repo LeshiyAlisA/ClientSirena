@@ -31,7 +31,7 @@ class PeopleHandler(BaseHandler):
         print limit
         for r in People.objects.all()[start:int(start) + int(limit)]:
             d.append(
-                    {'lastName': r.lastName, 'firstName': r.firstName, 'middleName': r.middleName, 'company': r.company,
+                    {'lastName': r.lastName, 'firstName1': r.firstName, 'middleName': r.middleName, 'company': r.company,
                      'department': r.department, 'passport': r.passport, 'numberPassport': r.numberPassport,
                      'datePassport': r.datePassport, 'address': r.address, 'phone': r.phone})
 
